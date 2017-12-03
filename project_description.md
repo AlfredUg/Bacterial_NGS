@@ -1,6 +1,6 @@
 # Bacterial NGS
 
-Background: Acute febrile illness (AFI) refers to the development of fever of short duration as a result of the immune system
+Acute febrile illness (AFI) refers to the development of fever of short duration as a result of the immune system
 responding to the foreign pathogens. Other associated symptoms may include: headaches, dizziness and muscle pain among others.
 Diagnosis and treatment of AFI is a major challenge as there are a number of pathogens that can result in very similar 
 clinical presentations. Examples of infectious diseases leading to AFI in the tropics include: malaria, dengue, typhoid, 
