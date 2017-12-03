@@ -37,9 +37,9 @@ awk '{$1=$2=""}1' vfdb_description.txt | awk -F"[" '{print $1}' > vf_full.txt
 awk '{$1=$2=""}1' vfdb_description.txt | awk -F"[" '{print $2}' | sed 's/]//' > vf_cat.txt
 #get the associated bacterial pathogens
 awk '{$1=$2=""}1' vfdb_description.txt | awk -F"[" '{print $3}' | sed 's/]//' > vf_pathogen.txt
-#go to R and create a csv file equivalent using these fields.
+#go to R and create a csv file equivalent using these fields. (see customVFDB.R)
 
-#SEARCH FOR DETECTED VIRULENCE FACTOR DESCRIPTION AND ASSOCIATED FACTORS
+#SEARCH FOR DETECTED VIRULENCE FACTOR DESCRIPTION AND ASSOCIATED PATHOGENS
 #we are selecting the 4th and 5th fields (full name of vf and corresponding pathogen)
 grep -f "selected.txt" "vfdb.csv" | awk -F"," '{print $4","$5}' > detected_vfs.txt
 #write desired fields of the diamond output ()accession ids, %ge of matched seqs and E-value. 
