@@ -1,4 +1,4 @@
-#Bacterial NGS
+# Bacterial NGS
 
 Background: Acute febrile illness (AFI) refers to the development of fever of short duration as a result of the immune system
 responding to the foreign pathogens. Other associated symptoms may include: headaches, dizziness and muscle pain among others.
