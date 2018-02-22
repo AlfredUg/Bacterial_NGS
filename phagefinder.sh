@@ -1,5 +1,4 @@
 #create directories to accomodate output of the metaphinder
-
 while read p; do mkdir $p; done < uniq_prefix.txt
 
 #then loop over the directories and do metaphinder for contigs from each sample and store the results in corresponding directories
@@ -9,10 +8,6 @@ for i in $(ls) do;
   do sed -i "s/$/\t$f/" $f/blast.out
   do sed -i "s/$/\t$f/" $f/output.txt; done
 done
-
-#along the way, the following poped up; this would imply that there are no records in these folders, need to check that
-#sed: can't read AfD056-1_S1/blast.out: No such file or directory
-#sed: can't read AfD063-1_S4/blast.out: No such file or directory
 
 #then we can merge the files, first the output.txt files
 #pick only phage classified records
