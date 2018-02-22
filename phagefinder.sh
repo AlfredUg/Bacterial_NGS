@@ -2,11 +2,11 @@
 while read p; do mkdir $p; done < uniq_prefix.txt
 
 #then loop over the directories and do metaphinder for contigs from each sample and store the results in corresponding directories
-#add sample names to each record in output as an extra column. This helps us to identify which corresponding sample after merging results into a single file.
+#and also add sample names to each record in output as an extra column. This helps us to identify which corresponding sample after merging results into a single file.
 for i in $(ls) do;
   python /home/HCV2/Alfred/AFIplus/metaphinder/MetaPhinder.py -i /home/HCV2/Alfred/AFIplus/assembly/${i}/contig.fa -o ./${i} -d /home/HCV2/Alfred/AFIplus/metaphinder/database/ALL_140821_hr -b /usr/bin;
-  do sed -i "s/$/\t$f/" $f/blast.out
-  do sed -i "s/$/\t$f/" $f/output.txt; done
+  sed -i "s/$/\t$f/" $f/blast.out
+  sed -i "s/$/\t$f/" $f/output.txt
 done
 
 #then we can merge the files, first the output.txt files
