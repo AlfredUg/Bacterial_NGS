@@ -19,7 +19,7 @@ getline <"vfdb_pro_accession_ids.txt"
 #by printing all lines of the database file begining with >
 awk '/^>/' vfdb_pro_diamondf.fas > vfdb_description.txt
 
-#BUILD A CSV FILE EQUIVALENT TO VFDB WITH SELECTED FIELDS
+#BUILD A TXT FILE EQUIVALENT TO VFDB WITH SELECTED FIELDS
 #this will be used later for obtaining meta-data of diamond detected virulent factors
 #get the accession numbers
 awk '/^>/' vfdb_pro_diamondf | awk '{print $1}' | awk -F "[()]" '{print $2}' | cut -c 4- | sed -e 's/>//'  > vf_acc.txt
@@ -37,4 +37,5 @@ awk '{$1=$2=""}1' vfdb_description.txt | awk -F"[" '{print $1}' > vf_full.txt
 awk '{$1=$2=""}1' vfdb_description.txt | awk -F"[" '{print $2}' | sed 's/]//' > vf_cat.txt
 #get the associated bacterial pathogens
 awk '{$1=$2=""}1' vfdb_description.txt | awk -F"[" '{print $3}' | sed 's/]//' > vf_pathogen.txt
-#go to R and create a csv file equivalent using these fields. (see customVFDB.R)
+#create a vfdb equivalent using the above fields.
+paste -d "|" vf_*.txt | sort -k 1 -t "|" > sorted_vfdb.txt
